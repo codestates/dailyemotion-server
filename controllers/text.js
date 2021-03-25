@@ -54,6 +54,10 @@ module.exports = {
         }
     },
     textList: async(req,res)=>{
+        if(!req.session.userId){
+            res.status(404).send('not login')
+        }
+        else{
         console.log(req.session)
         const textlist = await text.findAll({
             where:{
@@ -73,7 +77,7 @@ module.exports = {
                 message:'can not found'
             })
         }
-    },
+    }},
     textChange: (req,res)=>{
         const text_id = req.body.text_id
         const text_content = req.body.textContent

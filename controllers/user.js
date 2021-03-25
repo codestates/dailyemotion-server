@@ -9,7 +9,7 @@ module.exports = {
                 password: req.body.password
             }
         });
-        console.log(userInfos.user_email)
+        console.log(userInfos)
         if(!userInfos){
             res.status(404).send('이메일 혹은 비밀번호가 일치하지 않습니다');
         }
